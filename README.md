@@ -13,3 +13,12 @@ Permission page
 Products page
 ![image](https://user-images.githubusercontent.com/96434885/192107363-425c1231-d3d3-48e4-844e-f72d8e7baf39.png)
 ![image](https://user-images.githubusercontent.com/96434885/192107437-6a958369-e5ef-4b3d-b8bc-2a454c6860d0.png)
+
+
+
+Regstration
+![image](https://user-images.githubusercontent.com/96434885/192107565-c7c492fe-5a79-484c-b266-d0b4ce5a9f81.png)
+
+
+
+
