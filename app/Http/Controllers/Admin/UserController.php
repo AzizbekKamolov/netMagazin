@@ -92,18 +92,18 @@ class UserController extends Controller
         $user->update();
 
         $user->syncRoles($data['role']);
-        
+
         return redirect()->route('user');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminwate\Http\Response
      */
-    public function destroy(User $role)
+    public function destroy(User $user)
     {
-        $role->delete();
+        $user->delete();
         return redirect()->back();
     }
 }

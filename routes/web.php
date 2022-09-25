@@ -39,27 +39,31 @@ Route::post('/dashboard', [AuthController::class, 'login'])->name('login');
 
 
 Route::group(['middleware' => 'auth'], function (){
-    Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
-    Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
-    Route::post('/permission/store', [PermissionController::class, 'store'])->name('permission.store');
-    Route::get('/permission/edit/{permission}', [PermissionController::class, 'edit'])->name('permission.edit');
-    Route::put('/permission/update/{permission}', [PermissionController::class, 'update'])->name('permission.update');
-    Route::delete('/permission/delete/{permission}', [PermissionController::class, 'destroy'])->name('permission.delete');
+
+   Route::group(['middleware' => 'role:superAdmin'], function (){
+       Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
+       Route::get('/permission/create', [PermissionController::class, 'create'])->name('permission.create');
+       Route::post('/permission/store', [PermissionController::class, 'store'])->name('permission.store');
+       Route::get('/permission/edit/{permission}', [PermissionController::class, 'edit'])->name('permission.edit');
+       Route::put('/permission/update/{permission}', [PermissionController::class, 'update'])->name('permission.update');
+       Route::delete('/permission/delete/{permission}', [PermissionController::class, 'destroy'])->name('permission.delete');
 
 
-    Route::get('/role', [RoleController::class, 'index'])->name('role');
-    Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
-    Route::post('/role/store', [RoleController::class, 'store'])->name('role.store');
-    Route::get('/role/edit/{role}', [RoleController::class, 'edit'])->name('role.edit');
-    Route::put('/role/update/{role}', [RoleController::class, 'update'])->name('role.update');
-    Route::delete('/role/delete/{role}', [RoleController::class, 'destroy'])->name('role.delete');
+       Route::get('/role', [RoleController::class, 'index'])->name('role');
+       Route::get('/role/create', [RoleController::class, 'create'])->name('role.create');
+       Route::post('/role/store', [RoleController::class, 'store'])->name('role.store');
+       Route::get('/role/edit/{role}', [RoleController::class, 'edit'])->name('role.edit');
+       Route::put('/role/update/{role}', [RoleController::class, 'update'])->name('role.update');
+       Route::delete('/role/delete/{role}', [RoleController::class, 'destroy'])->name('role.delete');
 
-    Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
-    Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
-    Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
-    Route::delete('/user/delete/{user}', [UserController::class, 'destroy'])->name('user.delete');
+       Route::get('/user', [UserController::class, 'index'])->name('user');
+       Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+       Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+       Route::get('/user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+       Route::put('/user/update/{user}', [UserController::class, 'update'])->name('user.update');
+       Route::delete('/user/delete/{user}', [UserController::class, 'destroy'])->name('user.delete');
+
+   });
 
     Route::get('/product', [ProductController::class, 'index'])->name('product');
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');

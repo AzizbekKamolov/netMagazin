@@ -21,11 +21,11 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         auth()->login($user);
-        return redirect('/user')->with('success', 'your registered successfully');
+        return redirect('/product')->with('success', 'your registered successfully');
     }
     public function login(Request $request){
         if (auth()->attempt($request->only(['email', 'password']))){
-            return redirect('/user')->with('success', 'your logined successfully');
+            return redirect('/product')->with('success', 'your logined successfully');
         }
 
         return back()->with('error', 'wrong email or password');
